@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+IMage Adjust
+{% endblock %}
+
+
+{% block scripts %}
+{% if scrollToAnchor %}
+<script>
+            document.addEventListener("DOMContentLoaded", function() {
+                document.location.hash = '#{{ scrollToAnchor }}';
+                });
+
+</script>
+{% endif %}
+{% endblock %}
+
+
+{% block content %}
+
+<section id="hero-section" class="test-test">
+
+    <div class="hero-section-container">
+
+        <div class="hero-header">
+            <h1 class="hero-title">
+                Select
+            </h1>
+            <p class="hero-subtitle">
+                <img class="hero-image-small"
+                     src="../static/images/tools/image_adjust/image_adjust_logo.png"
+                     alt="countries_logo_small.png">
+                an image and let Numpy help you to adjust it just the way you want to.
+                Adjust the colors, rotate the image and much more!
+            </p>
+        </div>
+
+        <div class="hero-image-container">
+            <img src="../static/images/tools/image_adjust/image_adjust_logo.png"
+                 alt="countries_logo.png"
+                 class="hero-image">
+        </div>
+
+    </div>
+</section>
+
+
+<section id="upload-section">
+
+    <div class="upload-section-container">
+
+        <div class="card text-white">
+            <div class="card-body p-5 text-center">
+                <div class="container">
+                    {% for message in get_flashed_messages() %}
+                    <div class="alert alert-secondary" role="alert">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+
+                    <p class="upload-title fw-bold mb-2 text-uppercase">Upload image</p>
+                    <p class="text-white-50 mb-5">(.png or .svg)</p>
+                </div>
+
+                <div class="form-outline form-white mb-4">
+                    <form method=post enctype=multipart/form-data>
+                        <input type="hidden" name="csrf_token"
+                               value="{{ csrf_token() }}"/>
+                        <input class="select-file" type=file name=file>
+                        <input class="upload-file" type=submit value=Upload>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,136 @@
+{% extends "base.html" %}}
+
+
+{% block title %}
+Numbers
+{% endblock %}
+
+
+{% block scripts %}
+{% if scrollToAnchor %}
+<script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        document.location.hash = '#{{ scrollToAnchor }}';
+                        });
+
+</script>
+{% endif %}
+{% endblock %}
+
+
+{% block content %}
+<section id="hero-section">
+    <div class="hero-section-container">
+
+        <div class="hero-header-container">
+            <div class="hero-header">
+                <h1 class="hero-title">
+                    Test
+                </h1>
+                <p class="hero-subtitle">
+                    <img class="hero-image-small"
+                         src="../static/images/games/numbers/numbers-logo.png"
+                         alt="numbers_logo.png">
+                    your reaction speed and accuracy. Click the numbers, in order, and press the stop
+                button when it appears after number 9.
+                </p>
+            </div>
+
+            <div class="hero-image-container">
+                <img class="hero-image"
+                         src="../static/images/games/numbers/numbers-logo.png"
+                         alt="numbers_logo.png">
+            </div>
+        </div>
+
+        <div class="play-button-container">
+            <a href="{{ url_for('games.play_numbers') }}"
+               class="btn w-100 fw-bold pt-3 pb-3 text-uppercase text-white play-button">
+                Play
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<section id="high-score-section">
+    <div class="high-score-section-container">
+
+        <div class="card">
+            <div class="p-5 text-center">
+                <div class="high-score-card">
+
+                    <p class="high-score-title fw-bold mb-5 text-uppercase">
+                        Best Average
+                    </p>
+
+                    <p class="high-score-score">
+                        Player1 &nbsp;&nbsp;&nbsp; 2.4
+                    </p>
+
+                    <p class="high-score-score">
+                        Player2 &nbsp;&nbsp;&nbsp; 2.7
+                    </p>
+
+                    <p class="high-score-score">
+                        Player3 &nbsp;&nbsp;&nbsp; 3.0
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="p-5 text-center">
+                <div class="high-score-card">
+
+                    <p class="high-score-title fw-bold mb-5 text-uppercase">
+                        Most Wins
+                    </p>
+
+                    <p class="high-score-score">
+                        Player1 &nbsp;&nbsp;&nbsp; 2.4
+                    </p>
+
+                    <p class="high-score-score">
+                        Player2 &nbsp;&nbsp;&nbsp; 2.7
+                    </p>
+
+                    <p class="high-score-score">
+                        Player3 &nbsp;&nbsp;&nbsp; 3.0
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="p-5 text-center">
+                <div class="high-score-card">
+
+                    <p class="high-score-title fw-bold mb-5 text-uppercase">
+                        Least Fails
+                    </p>
+
+                    <p class="high-score-score">
+                        Player1 &nbsp;&nbsp;&nbsp; 2.4
+                    </p>
+
+                    <p class="high-score-score">
+                        Player2 &nbsp;&nbsp;&nbsp; 2.7
+                    </p>
+
+                    <p class="high-score-score">
+                        Player3 &nbsp;&nbsp;&nbsp; 3.0
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</section>
+
+{% endblock %}

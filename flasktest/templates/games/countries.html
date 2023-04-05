@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block title %}
+Countries
+{% endblock %}
+
+{% block scripts %}
+{% if scrollToAnchor %}
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.location.hash = '#{{ scrollToAnchor }}';
+        });
+</script>
+
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<section id="hero-section" class="test-test">
+
+    <div class="hero-section-container">
+
+        <div class="hero-header">
+            <h1 class="hero-title">
+                Show
+            </h1>
+            <p class="hero-subtitle">
+                <img class="hero-image-small"
+                         src="../static/images/games/countries/countries_logo.png"
+                         alt="countries_logo_small.png">
+                off your knowledge of the European continent. Guess which country has the largest
+                landmass and see
+                if you can beat your friends high-score.
+            </p>
+        </div>
+
+        <div class="hero-image-container">
+            <img src="../static/images/games/countries/countries_logo.png" alt="countries_logo.png"
+                 class="hero-image">
+        </div>
+
+    </div>
+</section>
+
+<section id="game-section">
+
+    <div class="game-section-container">
+
+        <div class="card text-white">
+            <div class="card-body p-5 text-center">
+                <div class="mb-md-3">
+
+                    <p class="fw-bold mb-5 text-uppercase">
+                        {{ name1 }}
+                    </p>
+
+                    <div>
+                        <img class="country-image mb-2" src="{{ path1 }}">
+                    </div>
+
+                    <p class="game-label mb-0">
+                        Size:
+                    </p>
+
+                    <p class="game-value mb-2 pb-3">
+                        {{ size1 }} km<sup>2</sup>
+                    </p>
+
+                    <p class="game-label mb-0 pb-0">
+                        Current streak:
+                    </p>
+
+                    <p class="game-value mb-2 pb-0">
+                        {{ country_streak }}
+                    </p>
+
+                    <p class="game-label mb-0 pb-0">
+                        Record:
+                    </p>
+
+                    <p class="game-value mb-2">
+                        {{ country_record }}
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-body-answer text-white">
+            <div class="card-body p-5 text-center">
+
+                <p class="fw-bold mb-5 card-answer text-uppercase">{{ name2 }}</p>
+
+                <div class="mb-4">
+                    <img class="country-image"
+                         src="{{ path2 }}">
+                </div>
+
+                <form method="POST" action="" novalidate>
+                    {{ country_form.hidden_tag() }}
+
+                    <div class="form-group">
+                        <p class="game-label">{{ country_form.select.label }}</p>
+                        {{ country_form.select(class="form-control form-control-lg") }}
+
+                        <div class="countries-button form-group mb-3 mt-5">
+                            {{ country_form.submit(class="btn btn-outline-light btn-lg
+                            px-5") }}
+                        </div>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+
+{% endblock %}

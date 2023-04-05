@@ -1,0 +1,22 @@
+/*General******** UPLOAD *********/
+#adjust-section {
+    background-color: var(--middle);
+    width: 100%;
+    padding: 160px 0 75px;
+}
+.adjust-section-container {
+    padding: 0 9%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/*Content******** UPLOAD *********/
+.card {
+    background-color: var(--dark);
+    width: 400px;
+    border-radius: 20px;
+}
+.image-adjust-image {
+    width: 400px;
+    height: 400px;
+}

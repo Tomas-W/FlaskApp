@@ -1,0 +1,164 @@
+{% extends "base.html" %}}
+
+
+{% block title %}
+    CPI
+{% endblock %}
+
+
+{% block scripts %}
+    {% if scrollToAnchor %}
+        <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        document.location.hash = '#{{ scrollToAnchor }}';
+                        });
+        </script>
+    {% endif %}
+{% endblock %}
+
+
+{% block content %}
+<section id="hero-section">
+
+    <div class="hero-section-container">
+
+        <div class="hero-header">
+            <h1 class="hero-title">
+                Search
+            </h1>
+            <p class="hero-subtitle">
+                through different categories and find the corresponding Consumer Price Index for the
+                selected time frame.
+            </p>
+        </div>
+
+        <div class="hero-image-container">
+            <img src="../static/images/api/cpi/cpi_logo.png" alt="pubg_logo.png"
+                 class="hero-image">
+        </div>
+
+    </div>
+</section>
+
+
+<section id="form-section">
+
+    <div class="form-section-container">
+
+        <form method="POST" action="" novalidate>
+            {{ cpi_form.hidden_tag() }}
+
+            <div class="form-section-container">
+
+                <div class="cpi-group-container">
+
+                    <div class="cpi-group">
+                        <h5 class="cpi-label">Appearance</h5>
+                        {{ cpi_form.appearance(class="form-control form-control-lg") }}
+                    </div>
+
+                    <div class="cpi-group">
+                        <h5 class="cpi-label">Appliances</h5>
+                        {{ cpi_form.appliances(class="form-control form-control-lg") }}
+                    </div>
+
+                    <div class="cpi-group">
+                        <h5 class="cpi-label">Fixed Costs</h5>
+                        {{ cpi_form.fixed(class="form-control form-control-lg") }}
+                    </div>
+                </div>
+
+
+                <div class="cpi-group-container">
+                    <div class="cpi-group">
+                        <h5 class="cpi-label">Food & Drinks</h5>
+                        {{ cpi_form.food(class="form-control form-control-lg") }}
+                    </div>
+
+                    <div class="cpi-group">
+                        <h5 class="cpi-label">Snacks</h5>
+                        {{ cpi_form.snacks(class="form-control form-control-lg") }}
+                    </div>
+
+                    <div class="cpi-group">
+                        <h5 class="cpi-label">Luxury</h5>
+                        {{ cpi_form.luxury(class="form-control form-control-lg") }}
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="error-div">
+                {% for error in cpi_form.errors["start_year"] %}
+                <p class="text-danger mb-1"><strong>{{ error }}</strong></p>
+                {% endfor %}
+            </div>
+            <div class="error-div">
+                {% for error in cpi_form.errors["stop_year"] %}
+                <p class="text-danger mb-1"><strong>{{ error }}</strong></p>
+                {% endfor %}
+            </div>
+
+            <div class="flashed_messages">
+                {% for message in get_flashed_messages() %}
+                <div class="alert alert-warning" role="alert">
+                    {{ message }}
+                </div>
+                {% endfor %}
+            </div>
+
+
+            <div class="cpi-submit-container">
+                <div class="cpi-start">
+                    <h4 class="cpi-label">Start year</h4>
+                    {{ cpi_form.start_year(class="form-control form-control-lg") }}
+                </div>
+
+                {{ cpi_form.submit(class="btn btn-outline-light btn-lg px-5 cpi-search-button") }}
+
+                <div class="cpi-stop">
+                    <h4 class="cpi-label">Stop year</h4>
+                    {{ cpi_form.stop_year(class="form-control form-control-lg") }}
+                </div>
+
+            </div>
+        </form>
+    </div>
+</section>
+
+
+<section id="graph-section">
+    <div class="graph-section-container">
+        <div class="graph-container-row1">
+
+            {% if total_graphs > 0 %}
+            <div class="graph-container">
+                <img class="graph-image" src="{{ graph_paths[0] }}">
+            </div>
+            {% endif %}
+
+            {% if total_graphs > 1 %}
+            <div class="graph-container">
+                <img class="graph-image" src="{{ graph_paths[1] }}">
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="graph-container-row2">
+            {% if total_graphs > 2 %}
+            <div class="graph-container">
+                <img class="graph-image" src="{{ graph_paths[2] }}">
+            </div>
+            {% endif %}
+
+            {% if total_graphs > 3 %}
+            <div class="graph-container">
+                <img class="graph-image" src="{{ graph_paths[3] }}">
+            </div>
+            {% endif %}
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,124 @@
+/*General******** HERO *********/
+#hero-section {
+    background-color: var(--middle);
+    width: 100%;
+    padding: 160px 0 75px;
+}
+.hero-section-container {
+    padding: 0 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/*Header******** HERO *********/
+.hero-header {
+    padding-bottom: 125px;
+    width: 300px;
+    color: var(--black);
+}
+.hero-image {
+    width: 400px;
+    height: 400px;
+}
+.hero-image-small {
+    display: none;
+    margin-right: 15px;
+}
+
+/*General******** GAME *********/
+#game-section {
+    background-color: var(--middle);
+}
+.game-section-container {
+    padding: 100px 0 75px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/*Content******** GAME *********/
+.card {
+    background-color: var(--dark);
+    height: 700px;
+    width: 400px;
+    border-radius: 20px;
+}
+.country-image {
+    border-radius: 5%;
+    width: 200px;
+    height: 250px;
+}
+.country-size {
+    font-size: 1.8rem;
+    color: var(--white);
+}
+.country-streak,
+ .country-record {
+    font-size: 1.8rem;
+    color: var(--white);
+}
+.game-label,
+.game-value {
+    color: var(--light);
+}
+.game-label {
+    font-size: 1rem;
+    opacity: 0.6;
+}
+.game-value {
+    font-size: 1.8rem;
+}
+
+/* ********** Media ********** */
+@media only screen and (max-width: 992px) {
+    #hero-section { padding: 125px 0 25px }
+    .hero-header { padding-bottom: 0 }
+    h1 { font-size: 5rem }
+    .hero-image { width: 400px }
+    .hero-image { height: 400px }
+
+    .card { width: 300px }
+    .card { height: 650px }
+    .country-image { width: 180px }
+    .country-image { height: 225px }
+}
+
+@media screen and (max-width: 768px) {
+    #hero-section { padding: 125px 0 0px }
+    h1 { font-size: 3.7rem }
+    .hero-image { width: 225px }
+    .hero-image { height: 225px }
+
+    .card { width: 250px }
+    .card { height: 590px }
+    .country-image { width: 160px }
+    .country-image { height: 200px }
+    .game-value { font-size: 1.4rem }
+    .game-label { font-size: 0.8rem }
+}
+
+@media screen and (max-width: 576px) {
+    #hero-section { padding: 50px 0 0 }
+    .hero-section-container { flex-direction: column }
+    .hero-section-container { align-items: center }
+    .hero-header { padding: 0 }
+
+    .game-section-container { flex-direction: column }
+    .game-section-container { align-items: center }
+    .card { width: 300px }
+    .card-body-answer { height: 530px }
+    .card-body-answer { padding-top: 15px }
+    .card { margin-bottom: 50px }
+    .country-image { width: 180px }
+    .country-image { height: 225px }
+    .countries-button { position: relative }
+    .countries-button { bottom: 450px }
+    .card-answer { position: relative }
+    .card-answer { bottom: 30px }
+    .hero-image-container { display: none }
+    .hero-image-small { width: 75px }
+    .hero-image-small { height: 75px }
+    .hero-image-small { display: inline-block }
+    .hero-image-small { float: left }
+}
+

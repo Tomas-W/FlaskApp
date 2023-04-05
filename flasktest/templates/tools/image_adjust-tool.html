@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+
+{% block title %}
+Tools
+{% endblock %}
+
+{% block scripts %}
+{% if scrollToAnchor %}
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.location.hash = '#{{ scrollToAnchor }}';
+            });
+
+</script>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+
+<section id="adjust-section">
+
+    <div class="adjust-section-container">
+
+        <div class="uploaded-image-container">
+            <img class="uploaded-image image-adjust-image" src="{{ old_image }}">
+        </div>
+
+        <div class="adjust-card-container">
+            <div class="card text-white" style="border-radius: 1rem;">
+                <div class="card-body p-5 text-center">
+                    <div class="container">
+
+                        <form method="POST" action="" novalidate>
+                            {{ image_adjust_form.hidden_tag() }}
+
+                            <div class="form-group py-3">
+                                {% for error in image_adjust_form.errors["lighting"] %}
+                                <p class="text-danger mb-1"><strong>{{ error }}</strong></p>
+                                {% endfor %}
+
+                                <p class="text-white-50 mb-1">{{ image_adjust_form.lighting.label
+                                    }}</p>
+                                {{ image_adjust_form.lighting(class="form-control
+                                form-control-lg")
+                                }}
+                            </div>
+
+                            <div class="form-group py-3">
+                                {% for error in image_adjust_form.errors["lighting_value"] %}
+                                <p class="text-danger mb-1"><strong>{{ error }}</strong></p>
+                                {% endfor %}
+
+                                <p class="text-white-50 mb-1">{{
+                                    image_adjust_form.lighting_value.label }}</p>
+                                {{ image_adjust_form.lighting_value(class="form-control
+                                form-control-lg") }}
+                            </div>
+
+                            <div class="form-group py-3">
+                                {% for error in image_adjust_form.errors["mirror"] %}
+                                <p class="text-danger mb-1"><strong>{{ error }}</strong></p>
+                                {% endfor %}
+
+                                <p class="text-white-50 mb-1">{{ image_adjust_form.mirror.label
+                                    }}</p>
+                                {{ image_adjust_form.mirror(class="form-control
+                                form-control-lg") }}
+                            </div>
+
+                            <div class="form-group py-3">
+                                {% for error in image_adjust_form.errors["rotate"] %}
+                                <p class="text-danger mb-1"><strong>{{ error }}</strong></p>
+                                {% endfor %}
+
+                                <p class="text-white-50 mb-1">{{ image_adjust_form.rotate.label
+                                    }}</p>
+                                {{ image_adjust_form.rotate(class="form-control
+                                form-control-lg") }}
+                            </div>
+
+                            <div class="form-group py-3">
+                                {% for error in image_adjust_form.errors["rgb"] %}
+                                <p class="text-danger mb-1"><strong>{{ error }}</strong></p>
+                                {% endfor %}
+
+                                <p class="text-white-50 mb-1">{{ image_adjust_form.rgb.label
+                                    }}</p>
+                                {{ image_adjust_form.rgb(class="form-control form-control-lg")
+                                }}
+                            </div>
+
+                            <div class="form-group py-3">
+                                {% for error in image_adjust_form.errors["rgb_value"] %}
+                                <p class="text-danger mb-1"><strong>{{ error }}</strong></p>
+                                {% endfor %}
+
+                                <p class="text-white-50 mb-1">{{
+                                    image_adjust_form.rgb_value.label
+                                    }}</p>
+                                {{ image_adjust_form.rgb_value(class="form-control
+                                form-control-lg") }}
+                            </div>
+
+                            <div class="form-group py-3">
+                                {{ image_adjust_form.submit(class="form-control
+                                form-control-lg") }}
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="adjusted-image-container">
+            {% if not new_image %}
+                <img class="adjusted-image image-adjust-image" src="{{ old_image }}">
+            {% else %}
+                <img class="adjusted-image image-adjust-image" src="{{ new_image }}">
+            {% endif %}
+        </div>
+
+    </div>
+
+</section>
+
+
+{% endblock %}

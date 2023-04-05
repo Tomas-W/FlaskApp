@@ -1,0 +1,132 @@
+{% extends "base.html" %}}
+
+{% block title %}
+PUBG
+{% endblock %}
+
+{% block scripts %}
+{% if scrollToAnchor %}
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.location.hash = '#{{ scrollToAnchor }}';
+        });
+
+
+</script>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<section id="hero-section">
+
+    <div class="hero-section-container">
+
+        <div class="hero-header">
+            <h1 class="hero-title">
+                Search
+            </h1>
+            <p class="hero-subtitle">
+                for your favorite PUBG players and generate seasonal graphs! Stats include kills,
+                damage, wins and much more. Set to display either season totals, or averages per
+                game.
+            </p>
+        </div>
+
+        <div class="hero-image-container">
+            <img src="../static/images/api/pubg/pubg_logo.png" alt="pubg_logo.png"
+                 class="hero-image">
+        </div>
+
+    </div>
+</section>
+
+
+<section id="graph-section">
+    <div class="graph-section-container container">
+        <div class="row">
+            <div class="chart-one-left col-lg-4 md-12">
+                <div class="card" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+
+                        <div class="mb-md-3 mt-md-4">
+                            {% for message in get_flashed_messages() %}
+                            <div class="alert alert-warning" role="alert">
+                                {{ message }}
+                            </div>
+                            {% endfor %}
+
+                            <h2 class="fw-bold mb-2 text-uppercase">Find</h2>
+                            <p class="mb-3">your favorite player!</p>
+
+                            <div class="form-outline mb-4">
+                                <form method="POST" action="" novalidate>
+                                    {{ pubg_form.hidden_tag() }}
+                                    <div class="form-group py-3">
+
+                                        <p class="mb-1">{{ pubg_form.name.label }}</p>
+                                        {% for error in pubg_form.errors["name"] %}
+                                        <p class="text-danger mb-1"><strong>{{ error }}</strong></p>
+                                        {% endfor %}
+                                        {{ pubg_form.name(class="form-control form-control-lg") }}
+                                    </div>
+
+                                    <div class="form-group py-3">
+                                        <p class="mb-1">{{ pubg_form.perspective.label
+                                            }}</p>
+                                        {{ pubg_form.perspective(class="form-control
+                                        form-control-lg") }}
+                                    </div>
+
+                                    <div class="form-group py-3">
+                                        <p class="mb-1">{{ pubg_form.game_mode.label
+                                            }}</p>
+                                        {{ pubg_form.game_mode(class="form-control form-control-lg")
+                                        }}
+                                    </div>
+
+                                    <div class="form-group pt-3">
+                                        {{ pubg_form.submit(class="btn btn-outline-light btn-lg
+                                        px-5") }}
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="chart-one-right col-lg-8 md-12">
+
+                <div id="carouselExampleControls" class="carousel carousel-fade" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="{{ kills_img }}" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ damage_img }}" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ distance_img }}" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button"
+                            data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button"
+                            data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

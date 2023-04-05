@@ -1,0 +1,85 @@
+/********* General settings *********/
+
+/*Hero******** PUBG *********/
+#hero-section {
+    background-color: var(--middle);
+    width: 100%;
+    padding: 150px 0 75px;
+}
+.hero-section-container {
+    padding: 0 9%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.hero-header {
+    padding-bottom: 75px;
+    width: 300px;
+    color: var(--black);
+}
+.hero-image {
+    width: 575 px;
+    height: 275px;
+}
+/*Graphs******** PUBG *********/
+#graph-section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: var(--middle);
+    color: var(--black);
+}
+.graph-section-container {
+    padding-top: 100px;
+    padding-bottom: 75px;
+}
+
+.card {
+    background-color: var(--dark);
+    color: var(--light);
+}
+.carousel-item  {
+    transition-duration: 1.5s;
+}
+.carousel-inner {
+    width: 100%;
+}
+.carousel-control-prev {
+    left: -3%;
+    top: 68%;
+}
+.carousel-control-next {
+    right: -3%;
+    top: 68%;
+}
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+    width: 3vw;
+    height: 3vw;
+    color: var(--orange);
+    opacity: 0.7;
+}
+
+/*Media******** PUBG *********/
+@media screen and (max-width: 1200px) {
+    .hero-section-container { padding: 0 3% }
+    .hero-image { width: 500px }
+}
+
+@media screen and (max-width: 992px) {
+    .hero-section-container { flex-direction: column }
+    .hero-section-container { align-items: center }
+    .hero-section-container { justify-content: center }
+    .hero-section-container { text-align: center }
+    .hero-image { width: 600px }
+    .hero-image { height: 300px }
+}
+
+@media screen and (max-width: 768px) {
+    .hero-image { width: 500px }
+    .hero-image { height: 250px }
+}
+
+@media screen and (max-width: 576px) {
+    .hero-title { font-size: 4rem }
+    .hero-image { width: 300px }
+    .hero-image { height: 150px }
+}

@@ -1,0 +1,72 @@
+/********* Variables *********/
+:root {
+    --green: rgba(0, 160, 55, 0.6);
+    --yellow: rgba(222, 222, 77, 0.5);
+    --grey: rgba(134, 139, 149, 0.5);
+}
+
+/*General******** Game *********/
+#game-section {
+    background-color: rgba(57, 62, 70, 1);
+}
+.game-container {
+    padding-top: 125px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+/*Content******** Game *********/
+.game {
+    width: 425px;
+    height: 425px;
+    margin: auto;
+}
+.game div {
+    width: 75px;
+    height: 75px;
+    outline: 2px solid;
+    float: left;
+    margin: 5px;
+}
+.game-box {
+    padding-top: 5px;
+    font-size: 2.5rem;
+}
+.message-container {
+    text-align: center;
+    margin: auto;
+    width: 250px;
+}
+.submit-container {
+    width: 200px;
+    text-align: center;
+    padding-bottom: 50px;
+}
+.play-button-container a {
+    background-color: var(--light);
+    opacity: 0.6;
+    color: var(--dark);
+}
+.play-button-container a:hover {
+    background-color: var(--dark);
+    opacity: 0.9;
+    color: var(--light);
+}
+.guess-button {
+    background-color: var(--middle);
+}
+.guess-button:hover {
+    background-color: var(--middle);
+    color: var(--white);
+    opacity: 0.8;
+}
+
+/*Media******** Game *********/
+@media only screen and (max-width: 992px) {
+    .header {
+        text-align: center;
+    }
+}
+
+
+
